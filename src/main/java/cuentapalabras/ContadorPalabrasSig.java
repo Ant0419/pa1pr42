@@ -1,2 +1,4 @@
-package cuentapalabras;public class ContadorPalabrasSig {
+package cuentapalabras;
+
+public class ContadorPalabrasSig {
 }
