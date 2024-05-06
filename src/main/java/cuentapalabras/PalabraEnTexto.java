@@ -21,7 +21,7 @@ public class PalabraEnTexto {
         return Objects.hash(palabra);
     }
     @Override
-    public String toString(){
+    public String toString(){//debe devolver -> PALABRA: nveces.
         return palabra + ": " + veces;
     }
 }
