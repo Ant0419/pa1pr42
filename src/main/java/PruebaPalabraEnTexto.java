@@ -7,8 +7,8 @@ public class PruebaPalabraEnTexto {
         PalabraEnTexto Palabra1 = new PalabraEnTexto(p1);
         Palabra1.incrementa();
         PalabraEnTexto Palabra2 = new PalabraEnTexto(p2);
-        System.out.println(Palabra1);
-        System.out.println(Palabra2);
+        System.out.println("Palabra 1 = " + Palabra1);
+        System.out.println("Palabra 2 = " +Palabra2);
         if(Palabra1.equals(Palabra2)){
             System.out.println("Las palabras son iguales");
         }else{
