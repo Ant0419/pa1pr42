@@ -1,8 +1,6 @@
 package cuentapalabras;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,42 +8,23 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.StringJoiner;
 import java.util.concurrent.TimeoutException;
->>>>>>> developer_2
 
 public class ContadorPalabras {
     ArrayList<PalabraEnTexto> palabras;
     public ContadorPalabras(){
         palabras = new ArrayList<>();
     }
-<<<<<<< HEAD
     //Metodo que busca la PalabraEnTexto en el array si no esta devuelve -1.
-    private int esta(String pal){
-        PalabraEnTexto aux = new PalabraEnTexto(pal);
-        for (int i=0; i<palabras.size(); ++i){
-=======
+
     private int esta(String pal){
         PalabraEnTexto aux = new PalabraEnTexto(pal);
         for(int i=0; i< palabras.size(); ++i){
->>>>>>> developer_2
             if(palabras.get(i).equals(aux)){
                 return i;
             }
         }
         return -1;
     }
-<<<<<<< HEAD
-    protected void incluye(String pal){
-        int pos = esta(pal);
-        if(!(pal.isEmpty())) {
-            if (pos < 0) {
-                palabras.add(new PalabraEnTexto(pal));
-            } else {
-                palabras.get(pos).incrementa();
-            }
-        }
-    }
-}
-=======
     /*Este metodo llama al metodo esta y si el metodo devuelve una pos>0 incrementa el num de veces que aparece la palabra
     * si pos<0 añade una nueva PalabraEnTexto al array.
     */
@@ -57,6 +36,7 @@ public class ContadorPalabras {
             palabras.add(new PalabraEnTexto(pal));
         }
     }
+
     /*
     * Este metodo se le introduce una linea de texto y un delimitador, se guarda esa linea en palabras que estaran
     * separadas por del y hacemos un bucle que llamamos al metodo incluye.
@@ -68,6 +48,7 @@ public class ContadorPalabras {
                 incluye(pal);
         }
     }
+
     //El string[] texto en cada posicion tiene las lineas del texto para ello separarlo con el delimitador llamas al
     //incluyeTodas de arriba
     public void incluyeTodas(String[] texto, String del){
@@ -75,6 +56,7 @@ public class ContadorPalabras {
             incluyeTodas(s,del);
         }
     }
+
     /*
     *En este metodo se pasa el nombre del fichero y el delimitador de las palabras, se abre el fichero usamos el
     * BufferedReader -> Guarda cada linea del fichero en un String que se llama linea llamando al primer metodo de incluyeTodas.
@@ -89,6 +71,7 @@ public class ContadorPalabras {
             }
         }
     }
+
     //Busca una palabra que se introduce y devuelve la posicion, en caso de no encontrarlo lanza "NoSuchElementException"
     public PalabraEnTexto encuentra(String pal){
         int pos = esta(pal);
@@ -98,6 +81,7 @@ public class ContadorPalabras {
             return palabras.get(pos);
         }
     }
+
     //Usamos StringJoinner para que la impresion en pantalla sea como la pedida en la practica.
     @Override
     public String toString(){
@@ -107,15 +91,17 @@ public class ContadorPalabras {
         }
         return sj.toString();
     }
+
     public void presentaPalabras(String fichero) throws FileNotFoundException {
         try (PrintWriter pw = new PrintWriter(fichero)) {
             presentaPalabras(pw);
         }
     }
+
     public void presentaPalabras(PrintWriter pw) {
         for (PalabraEnTexto palabra : palabras) {
             pw.println(palabra.toString());
         }
     }
 }
->>>>>>> developer_2
+

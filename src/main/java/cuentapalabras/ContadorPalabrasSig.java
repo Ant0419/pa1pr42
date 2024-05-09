@@ -1,11 +1,5 @@
 package cuentapalabras;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-public class ContadorPalabrasSig {
-
-=======
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -49,5 +43,4 @@ public class ContadorPalabrasSig extends ContadorPalabras{
         }
         super.incluye(pal);
     }
->>>>>>> developer_2
 }
