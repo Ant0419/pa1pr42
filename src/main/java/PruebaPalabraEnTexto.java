@@ -8,7 +8,11 @@ public class PruebaPalabraEnTexto {
         Palabra1.incrementa();
         PalabraEnTexto Palabra2 = new PalabraEnTexto(p2);
         System.out.println("Palabra 1 = " + Palabra1);
+<<<<<<< HEAD
         System.out.println("Palabra 2 = " +Palabra2);
+=======
+        System.out.println("Palabra 2 = " + Palabra2);
+>>>>>>> developer_2
         if(Palabra1.equals(Palabra2)){
             System.out.println("Las palabras son iguales");
         }else{
