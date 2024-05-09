@@ -13,8 +13,10 @@ public class ContadorPalabrasSig extends ContadorPalabras{
     }
     public void leeArrayNoSig(String[] palsNS){
         noSignificativas.clear();
-        for(int i=0; i<palsNS.length; ++i){
-            noSignificativas.add(palsNS[i].toUpperCase());
+        for (String palabra : palsNS) {
+            if (!palabra.isEmpty()) {
+                noSignificativas.add(palabra.toUpperCase());
+            }
         }
     }
     public void leeFicheroNoSig(String filNoSig, String del) throws IOException{
@@ -34,5 +36,11 @@ public class ContadorPalabrasSig extends ContadorPalabras{
             noSignificativas.add(palabrasProcesada.toUpperCase());
         }
     }
-
+    @Override
+    protected void incluye(String pal) {
+        if (noSignificativas.contains(pal.toUpperCase())) {
+            return;
+        }
+        super.incluye(pal);
+    }
 }

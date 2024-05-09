@@ -27,7 +27,7 @@ public class ContadorPalabras {
     */
     protected void incluye(String pal){
         int pos = esta(pal);
-        if(pos>0){
+        if(pos>=0){
             palabras.get(pos).incrementa();
         }else{
             palabras.add(new PalabraEnTexto(pal));
@@ -39,8 +39,9 @@ public class ContadorPalabras {
     */
     private void incluyeTodas(String linea, String del){
         String[] palabrasProcesadas = linea.split(del);
-        for(String pal: palabrasProcesadas){
-            incluye(pal);
+        for(String pal: palabrasProcesadas) {
+            if (!pal.isEmpty())
+                incluye(pal);
         }
     }
     //El string[] texto en cada posicion tiene las lineas del texto para ello separarlo con el delimitador llamas al
@@ -68,7 +69,7 @@ public class ContadorPalabras {
     public PalabraEnTexto encuentra(String pal){
         int pos = esta(pal);
         if(pos == -1){
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("No existe la palabra " + pal);
         }else{
             return palabras.get(pos);
         }
@@ -83,10 +84,13 @@ public class ContadorPalabras {
         return sj.toString();
     }
     public void presentaPalabras(String fichero) throws FileNotFoundException {
-
+        try (PrintWriter pw = new PrintWriter(fichero)) {
+            presentaPalabras(pw);
+        }
     }
-    public void presentaPalabras (PrintWriter pw){
-
+    public void presentaPalabras(PrintWriter pw) {
+        for (PalabraEnTexto palabra : palabras) {
+            pw.println(palabra.toString());
+        }
     }
-
 }

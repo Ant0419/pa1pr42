@@ -1,4 +1,4 @@
-package cuentapalabras;
+import cuentapalabras.ContadorPalabras;
 
 public class PruebaContadorPalabras {
     public static void main(String[] args) {
